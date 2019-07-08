@@ -62,11 +62,9 @@ function findLongEdge(){
   if (width > height){
     longEdge = width;
   }
-
   else{
     longEdge = height;
   }
-
 }
 
 function draw() {
@@ -262,7 +260,7 @@ function reset() {
 
 function windowResized() {
 
-resizeCanvas(windowWidth, windowHeight);
+
 setup();
 
 }
