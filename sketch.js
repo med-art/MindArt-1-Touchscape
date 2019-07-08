@@ -23,19 +23,16 @@ var rakeX = 0, rakeY = 0, rake2X = 0, rake2Y = 0, rake3X = 0, rake3Y = 0, angle1
 //margin from right
 var margin, buttonWidth, buttonSpacing;
 
-
+let colourBool = 0;
 
 function preload() {
 
 // brush loads
-
   img_brush = loadImage('assets/brush.png');
   img_rake = loadImage('assets/rake1.png');
   img_rake2 = loadImage('assets/rake2.png');
   img_background = loadImage('assets/sand_01.jpg')
-  sound1 = loadSound('assets/sound1.mp3')
-  sound2 = loadSound('assets/sound2.mp3')
-  sound3 = loadSound('assets/sound3.mp3')
+
 
   for (var i = 1; i < 9; i++) {
     gui_img[i] = loadImage('assets/gui' + i + '.png');
@@ -60,6 +57,7 @@ function setup() {
   image(img_background, 0, 0, width, height);
   //  image(gui_img[4], width - 300, 450, 150, 150);
   //  img_background.resize(width, height);
+    colorMode(HSB, 360, 100, 100, 1);
 
 
 
@@ -81,6 +79,9 @@ margin = width / 11;
 buttonWidth = width / 17;
 buttonSpacing = width / 15;
 
+writeTextUI();
+
+
 
 }
 
@@ -92,59 +93,70 @@ function draw() {
     image(pebbleu[tempID[k]], tempX[k], tempY[k], randomScalar[k], randomScalar[k]);
   }
 
-  image(gui_img[bool_button1 + 1], width - margin, (height/2)-buttonSpacing, buttonWidth, buttonWidth);
-  image(gui_img[bool_button2], width - margin, height/2, buttonWidth, buttonWidth)
-  image(gui_img[8], width - margin, (height/2)+buttonSpacing, buttonWidth, buttonWidth);
-
 
 
   //pebble1
 }
 
-function mousePressed() {
+function rake0(){
+
+  bool_button1 = 0;
+
+  button1A.style('background-color', colSelect);
+  button1A.style('color', 'grey');
+  button1A.style('border', '3px solid white');
+
+  button1B.style('background-color', col);
+  button1B.style('color', 'white');
+  button1B.style('border', '0px solid white');
+
+  button1C.style('background-color', col);
+  button1C.style('color', 'white');
+  button1C.style('border', '0px solid white');
+}
+
+function rake1() {
+
+    bool_button1 = 1;
+    button1A.style('background-color', col);
+    button1A.style('color', 'white');
+    button1A.style('border', '0px solid white');
+    button1B.style('background-color', colSelect);
+    button1B.style('color', 'grey');
+    button1B.style('border', '3px solid white');
+    button1C.style('background-color', col);
+    button1C.style('color', 'white');
+    button1C.style('border', '0px solid white');
+  }
+
+function rake2() {
+  bool_button1 = 2;
+  button1A.style('background-color', col);
+  button1A.style('color', 'white');
+  button1A.style('border', '0px solid white')
+  button1B.style('background-color', col);
+  button1B.style('color', 'grey');
+  button1B.style('border', '0px solid white')
+  button1C.style('background-color', colSelect);
+  button1C.style('color', 'white');
+  button1C.style('border', '3px solid white')
+}
+
+
 
   //button1 distance recorder
-  let d = dist(mouseX, mouseY, width-margin+(buttonWidth/2), (height/2)-buttonSpacing+(buttonWidth/2));
-  if (d < buttonWidth/2) {
-
-
-    bool_button1++;
-    if (bool_button1 >= 3) {
-      bool_button1 = 0;
-    }
 
 
 
-    console.log("brush" + bool_button1);
-  }
-
-  //button2 distance recorder
-  let d2 = dist(mouseX, mouseY, width-margin+(buttonWidth/2), (height/2)+(buttonWidth/2));
-  if (d2 < buttonWidth/2) {
-    if (sound1.isPlaying()) {
-      sound1.stop();
-      sound2.loop();
-
-      bool_button2 = 6;
-
-    } else if (sound2.isPlaying()) {
-      sound2.stop();
-      sound3.play();
-      bool_button2 = 7;
-    } else if (sound3.isPlaying()) {
-      sound3.stop();
-      bool_button2 = 4;
-    } else {
-      sound1.loop()
-      bool_button2 = 5;
-    }
-  }
 
 
 
-  //button3 distance recorder
-  let d3 = dist(mouseX, mouseY, width-margin+(buttonWidth/2), (height/2)+buttonSpacing+(buttonWidth/2));
-  if (d3 < buttonWidth/2) {
+
+
+
+
+function reset() {
+
     image(img_background, 0, 0, width, height);
 
     // basic random counter to determine how many pebbles will be present on the screen;
@@ -154,11 +166,10 @@ function mousePressed() {
 
     // now a loop based on that random number, to place the pebbles on screen
     for (var k = 0; k < tempcount; k++) {
-      randomScalar[k] = int(random(120, 350)); // scale
+      randomScalar[k] = int(random(120, 180)); // scale
       tempID[k] = int(random(1, 7)); // which pebble iteration
       tempX[k] = int(random(0, width - randomScalar[k]));
       tempY[k] = int(random(0, height - randomScalar[k]));
-
 
 
       image(pebble[tempID[k]], tempX[k], tempY[k], randomScalar[k], randomScalar[k]);
@@ -167,7 +178,69 @@ function mousePressed() {
 
   }
 
+
+
+function writeTextUI(){
+
+  textSize(windowWidth/50);
+  fill(0);
+  noStroke();
+
+  let vw = windowWidth/100; // suspect we may have issue here with IOS in terms of rotation and measuring height, etc
+  let textMargin = windowWidth/100; // consolidate into above - no point having 2
+
+  button1A = createImg('assets/gui1.png');
+  button1B = createImg('assets/gui2.png');
+  button1C = createImg('assets/gui3.png');
+  button3 = createButton('New drawing');
+
+  button1A.position(textMargin,windowHeight-vw*8);
+  button1B.position((vw*7)+textMargin,windowHeight-vw*8);
+  button1C.position((vw*14)+textMargin,windowHeight-vw*8);
+
+  button3.position(windowWidth-(10*vw)-(textMargin*3),windowHeight-vw*4);
+
+ col = color(0,0,0,0.1);
+ colSelect = color(0,0,0,1);
+colH3 = color(355,87,74);
+
+ button1A.style('background-color', colSelect)
+ button1A.style('font-size', '1.5vw');
+ button1A.style('color', 'white');
+ button1A.style('width', '6vw');
+  button1A.style('border-radius', '0.5vw')
+  button1A.style('border', '3px solid white')
+ button1A.mousePressed(rake0);
+
+ button1B.style('background-color', col)
+ button1B.style('font-size', '1.5vw');
+ button1B.style('color', 'grey');
+ button1B.style('width', '6vw');
+ button1B.style('border-radius', '0.5vw')
+ button1B.mousePressed(rake1);
+
+ button1C.style('background-color', col)
+ button1C.style('font-size', '1.5vw');
+ button1C.style('color', 'grey');
+ button1C.style('width', '6vw');
+ button1C.style('border-radius', '0.5vw')
+ button1C.mousePressed(rake2);
+
+
+ button3.style('background-color', colH3);
+ button3.style('font-size', '2vw');
+ button3.style('color', 'white');
+ button3.style('border-radius', '0.25vw')
+  button3.style('width', '18vw')
+ button3.mousePressed(reset);
+
+
+
 }
+
+
+
+
 
 
 function mouseDragged() {
