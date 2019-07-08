@@ -126,7 +126,7 @@ function writeTextUI() {
   fill(0);
   noStroke();
 
-  let vw = longEdge / 100; // suspect we may have issue here with IOS in terms of rotation and measuring height, etc
+  let vmax = longEdge / 100; // suspect we may have issue here with IOS in terms of rotation and measuring height, etc
   let textMargin = longEdge / 100; // consolidate into above - no point having 2
 
   button1A = createImg('assets/gui1.png');
@@ -134,40 +134,40 @@ function writeTextUI() {
   button1C = createImg('assets/gui3.png');
   button3 = createButton('New drawing');
 
-  button1A.position(textMargin, windowHeight - vw * 8);
-  button1B.position((vw * 7) + textMargin, windowHeight - vw * 8);
-  button1C.position((vw * 14) + textMargin, windowHeight - vw * 8);
+  button1A.position(textMargin, windowHeight - vmax * 8);
+  button1B.position((vmax * 7) + textMargin, windowHeight - vmax * 8);
+  button1C.position((vmax * 14) + textMargin, windowHeight - vmax * 8);
 
-  button3.position(windowWidth - (10 * vw) - (textMargin * 3), windowHeight - vw * 4);
+  button3.position(windowWidth - (10 * vmax) - (textMargin * 3), windowHeight - vmax * 4);
 
   col = color(0, 0, 0, 0.1);
   colSelect = color(0, 0, 0, 1);
   colH3 = color(355, 87, 74);
 
   button1A.style('background-color', colSelect)
-  button1A.style('font-size', '1.5vw');
+  button1A.style('font-size', '1.5vmax');
   button1A.style('color', 'white');
-  button1A.style('width', '6vw');
-  button1A.style('border-radius', '0.5vw')
+  button1A.style('width', '6vmax');
+  button1A.style('border-radius', '0.5vmax')
   button1A.style('border', '3px solid white')
   button1A.mousePressed(rake0);
   button1B.style('background-color', col)
-  button1B.style('font-size', '1.5vw');
+  button1B.style('font-size', '1.5vmax');
   button1B.style('color', 'grey');
-  button1B.style('width', '6vw');
-  button1B.style('border-radius', '0.5vw')
+  button1B.style('width', '6vmax');
+  button1B.style('border-radius', '0.5vmax')
   button1B.mousePressed(rake1);
   button1C.style('background-color', col)
-  button1C.style('font-size', '1.5vw');
+  button1C.style('font-size', '1.5vmax');
   button1C.style('color', 'grey');
-  button1C.style('width', '6vw');
-  button1C.style('border-radius', '0.5vw')
+  button1C.style('width', '6vmax');
+  button1C.style('border-radius', '0.5vmax')
   button1C.mousePressed(rake2);
   button3.style('background-color', colH3);
-  button3.style('font-size', '2vw');
+  button3.style('font-size', '2vmax');
   button3.style('color', 'white');
-  button3.style('border-radius', '0.25vw')
-  button3.style('width', '18vw')
+  button3.style('border-radius', '0.25vmax')
+  button3.style('width', '18vmax')
   button3.mousePressed(reset);
 }
 
