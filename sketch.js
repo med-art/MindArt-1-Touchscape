@@ -65,9 +65,9 @@ function setup() {
 
 
 
-  img_brush.resize(width/30, width/20);
+  img_brush.resize(width/21, width/14);
 
-  img_rake.resize(width/30, width/20);
+  img_rake.resize(width/21, width/14);
 
 
 
@@ -316,7 +316,7 @@ function segment(rakeX, rakeY, a, rake) {
   push();
   translate(rakeX, rakeY);
   rotate(a);
-  image(rake, 0, -50, 0, 0);
+  image(rake, 0, 0, 0, 0);
   pop();
 }
 
