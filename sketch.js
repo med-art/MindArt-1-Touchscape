@@ -136,7 +136,7 @@ function writeTextUI() {
   button1B.position((vmax * 7) + textMargin, windowHeight - vmax * 8);
   button1C.position((vmax * 14) + textMargin, windowHeight - vmax * 8);
 
-  button3.position(windowWidth - (10 * vmax) - (textMargin * 3), windowHeight - vmax * 4);
+  button3.position(windowWidth - (10 * vmax) - (textMargin * 10), windowHeight - vmax * 4);
 
   col = color(0, 0, 0, 0.1);
   colSelect = color(0, 0, 0, 1);
@@ -172,24 +172,24 @@ function writeTextUI() {
 
 function mouseDragged() {
 
-  if (bool_button1 === 3) {
-    blendMode(BLEND);
-
-    loadPixels();
-    for (let y = (mouseY - 20); y < (mouseY + 20); y++) {
-      for (let x = (mouseX - 20); x < (mouseX + 20); x++) {
-        let index = (x + y * width) * 4;
-        // Below, the reason for adding the existing pixels back on is to fake a 50%
-        // opacity/alpha, which I suspect is not otherwise possible with a Pixel update
-        // The opacity feels too strong, consder revising to give 2/3 weight to the old values
-        pixels[index + 0] = (img_background.pixels[index + 0]);
-        pixels[index + 1] = (img_background.pixels[index + 1]);
-        pixels[index + 2] = (img_background.pixels[index + 2]);
-        // pixels[index + 3] = 255; // uncessary to add alpha from old pixel valyue
-      }
-    }
-    updatePixels();
-  }
+  // if (bool_button1 === 3) {
+  //   blendMode(BLEND);
+  //
+  //   loadPixels();
+  //   for (let y = (mouseY - 20); y < (mouseY + 20); y++) {
+  //     for (let x = (mouseX - 20); x < (mouseX + 20); x++) {
+  //       let index = (x + y * width) * 4;
+  //       // Below, the reason for adding the existing pixels back on is to fake a 50%
+  //       // opacity/alpha, which I suspect is not otherwise possible with a Pixel update
+  //       // The opacity feels too strong, consder revising to give 2/3 weight to the old values
+  //       pixels[index + 0] = (img_background.pixels[index + 0]);
+  //       pixels[index + 1] = (img_background.pixels[index + 1]);
+  //       pixels[index + 2] = (img_background.pixels[index + 2]);
+  //
+  //     }
+  //   }
+  //   updatePixels();
+  // }
 
   if (bool_button1 === 0) {
 
@@ -259,8 +259,9 @@ function reset() {
 }
 
 function windowResized() {
+    removeElements();
+    setup();
+    //image(img_background, 0, 0, width, height);
 
-
-setup();
 
 }
