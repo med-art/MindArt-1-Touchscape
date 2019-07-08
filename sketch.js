@@ -122,12 +122,12 @@ function rake2() {
 
 
 function writeTextUI() {
-  textSize(windowWidth / 50);
+  textSize(longEdge / 50);
   fill(0);
   noStroke();
 
-  let vw = windowWidth / 100; // suspect we may have issue here with IOS in terms of rotation and measuring height, etc
-  let textMargin = windowWidth / 100; // consolidate into above - no point having 2
+  let vw = longEdge / 100; // suspect we may have issue here with IOS in terms of rotation and measuring height, etc
+  let textMargin = longEdge / 100; // consolidate into above - no point having 2
 
   button1A = createImg('assets/gui1.png');
   button1B = createImg('assets/gui2.png');
