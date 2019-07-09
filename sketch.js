@@ -49,6 +49,7 @@ function setup() {
   image(img_background, 0, 0, width, height);
   colorMode(HSB, 360, 100, 100, 1.0);
 
+
   segLength = width / 15;
 
   findLongEdge();
@@ -150,12 +151,13 @@ function writeTextUI() {
   button1A = createImg('assets/gui1.png');
   button1B = createImg('assets/gui2.png');
   button1C = createImg('assets/gui3.png');
+  button2 = createButton('Full screen');
   button3 = createButton('New drawing');
 
   button1A.position(textMargin, windowHeight - vmax * 8);
   button1B.position((vmax * 7) + textMargin, windowHeight - vmax * 8);
   button1C.position((vmax * 14) + textMargin, windowHeight - vmax * 8);
-
+  button2.position(windowWidth - (10 * vmax) - (textMargin * 10), windowHeight - vmax * 8);
   button3.position(windowWidth - (10 * vmax) - (textMargin * 10), windowHeight - vmax * 4);
 
   col = color(0, 0, 0, 0.1);
@@ -181,6 +183,12 @@ function writeTextUI() {
   button1C.style('width', '6vmax');
   button1C.style('border-radius', '0.5vmax')
   button1C.mousePressed(rake2);
+  button2.style('background-color', colH3);
+  button2.style('font-size', '2vmax');
+  button2.style('color', 'white');
+  button2.style('border-radius', '0.25vmax')
+  button2.style('width', '18vmax')
+  button2.mousePressed(enterFS);
   button3.style('background-color', colH3);
   button3.style('font-size', '2vmax');
   button3.style('color', 'white');
@@ -189,6 +197,12 @@ function writeTextUI() {
   button3.mousePressed(resetTimeout);
 }
 
+function enterFS() {
+
+    let fs = fullscreen();
+    fullscreen(!fs);
+
+}
 
 function mouseDragged() {
 
