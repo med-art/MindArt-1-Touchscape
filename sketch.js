@@ -1,4 +1,4 @@
-let img_background, img_brush, img_rake; // all images
+let img_background, img_brush, img_rake, bLayer, pLayer; // all images
 let bool_button1 = 0; // bool_button1ean toggle
 let gui_img = [];
 let pebble = [];
@@ -22,9 +22,9 @@ let longEdge;
 
 function preload() {
   //load all brush assets and background
-  img_brush = loadImage('assets/brush.png');
-  img_rake = loadImage('assets/rake1.png');
-  img_rake2 = loadImage('assets/rake2.png');
+  img_brush = loadImage('assets/brushA.png');
+  img_rake = loadImage('assets/rake1b.png');
+  img_rake2 = loadImage('assets/rake2b.png');
   img_background = loadImage('assets/sand_01.jpg')
   //load all GUI assets
   for (let i = 1; i < 3; i++) {
@@ -42,20 +42,24 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  bLayer = createGraphics(windowWidth, windowHeight);
+  pLayer = createGraphics(windowWidth, windowHeight);
   pixelDensity(1); // effectively ignores retina displays
   img_background.loadPixels();
   image(img_background, 0, 0, width, height);
-  colorMode(HSB, 360, 100, 100, 1);
+  colorMode(HSB, 360, 100, 100, 1.0);
   segLength = width / 15;
 
   findLongEdge();
 
   // set brush sizes relative to width, must be below findLongEdge
-  img_brush.resize(longEdge / 30, longEdge / 30);
-  img_rake.resize(longEdge / 30, longEdge / 30);
+  img_brush.resize(longEdge / 50, longEdge / 30);
+  img_rake.resize(longEdge / 45, longEdge / 20);
   img_rake2.resize(longEdge / 60, longEdge / 10);
 
   writeTextUI();
+
+  bLayer.tint(255, 170);
 }
 
 function findLongEdge(){
@@ -68,11 +72,24 @@ function findLongEdge(){
 }
 
 function draw() {
+
   blendMode(BLEND);
+
+image(img_background, 0, 0, width, height);
+
+
     // Always draw pebbles over the top of each layer
   for (let k = 0; k < tempcount; k++) {
-    image(pebbleu[tempID[k]], tempX[k], tempY[k], randomScalar[k], randomScalar[k]);
+    pLayer.image(pebbleu[tempID[k]], tempX[k], tempY[k], randomScalar[k], randomScalar[k]);
   }
+
+    blendMode(OVERLAY);
+
+    image(bLayer, 0, 0, windowWidth, windowHeight);
+
+    blendMode(BLEND);
+    image(pLayer, 0, 0, windowWidth, windowHeight);
+
 }
 
 
@@ -166,11 +183,13 @@ function writeTextUI() {
   button3.style('color', 'white');
   button3.style('border-radius', '0.25vmax')
   button3.style('width', '18vmax')
-  button3.mousePressed(reset);
+  button3.mousePressed(resetTimeout);
 }
 
 
 function mouseDragged() {
+
+      bLayer.blendMode(BLEND);
 
   // if (bool_button1 === 3) {
   //   blendMode(BLEND);
@@ -193,7 +212,7 @@ function mouseDragged() {
 
   if (bool_button1 === 0) {
 
-    blendMode(OVERLAY);
+;
 
     dx = mouseX - rake3X;
     dy = mouseY - rake3Y;
@@ -207,7 +226,7 @@ function mouseDragged() {
 
   if (bool_button1 === 1) {
 
-    blendMode(OVERLAY);
+
 
     dx = mouseX - rakeX;
     dy = mouseY - rakeY;
@@ -219,7 +238,7 @@ function mouseDragged() {
   }
 
   if (bool_button1 === 2) {
-    blendMode(OVERLAY);
+
 
     dx = mouseX - rake2X;
     dy = mouseY - rake2Y;
@@ -234,16 +253,25 @@ function mouseDragged() {
 }
 
 function segment(rakeX, rakeY, a, rake) {
-  push();
-  translate(rakeX, rakeY);
-  rotate(a);
-  image(rake, 0, 0, 0, 0);
-  pop();
+  bLayer.push();
+  bLayer.translate(rakeX, rakeY);
+  bLayer.rotate(a);
+  bLayer.image(rake, 0, 0, 0, 0);
+  bLayer.pop();
+}
+
+function resetTimeout(){
+  setTimeout(reset, 50);
 }
 
 function reset() {
 
+  blendMode(REPLACE);
+
   image(img_background, 0, 0, width, height);
+
+  bLayer.clear();
+  pLayer.clear();
 
   // basic random counter to determine how many pebbles will be present on the screen;
   tempcount = int(random(0, 3));
@@ -254,7 +282,7 @@ function reset() {
     tempID[k] = int(random(1, 7)); // which pebble iteration
     tempX[k] = int(random(0, width - randomScalar[k]));
     tempY[k] = int(random(0, height - randomScalar[k]));
-    image(pebble[tempID[k]], tempX[k], tempY[k], randomScalar[k], randomScalar[k]);
+    pLayer.image(pebble[tempID[k]], tempX[k], tempY[k], randomScalar[k], randomScalar[k]);
   }
 }
 
