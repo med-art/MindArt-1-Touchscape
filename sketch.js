@@ -48,6 +48,7 @@ function setup() {
   img_background.loadPixels();
   image(img_background, 0, 0, width, height);
   colorMode(HSB, 360, 100, 100, 1.0);
+
   segLength = width / 15;
 
   findLongEdge();
@@ -72,6 +73,8 @@ function findLongEdge(){
 }
 
 function draw() {
+
+  imageMode(CORNER);
 
   blendMode(BLEND);
 
@@ -189,6 +192,8 @@ function writeTextUI() {
 
 function mouseDragged() {
 
+
+
       bLayer.blendMode(BLEND);
 
   // if (bool_button1 === 3) {
@@ -253,6 +258,7 @@ function mouseDragged() {
 }
 
 function segment(rakeX, rakeY, a, rake) {
+  bLayer.imageMode(CENTER);
   bLayer.push();
   bLayer.translate(rakeX, rakeY);
   bLayer.rotate(a);
