@@ -1,6 +1,12 @@
-html, body, div {
+.sketch {
   height: 100%;
   overscroll-behavior: none;
   position: fixed;
+}
 
+.loadingclass {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
 }

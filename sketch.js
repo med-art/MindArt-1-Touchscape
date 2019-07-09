@@ -151,14 +151,14 @@ function writeTextUI() {
   button1A = createImg('assets/gui1.png');
   button1B = createImg('assets/gui2.png');
   button1C = createImg('assets/gui3.png');
-  button2 = createButton('Full screen');
+  // button2 = createButton('Full screen');
   button3 = createButton('New drawing');
 
   button1A.position(textMargin, windowHeight - vmax * 8);
   button1B.position((vmax * 7) + textMargin, windowHeight - vmax * 8);
   button1C.position((vmax * 14) + textMargin, windowHeight - vmax * 8);
-  button2.position(windowWidth - (10 * vmax) - (textMargin * 10), windowHeight - vmax * 8);
-  button3.position(windowWidth - (10 * vmax) - (textMargin * 10), windowHeight - vmax * 4);
+  // button2.position(windowWidth - (10 * vmax) - (textMargin * 3), vmax * 1);
+  button3.position(windowWidth - (10 * vmax) - (textMargin * 5), windowHeight - vmax * 4);
 
   col = color(0, 0, 0, 0.1);
   colSelect = color(0, 0, 0, 1);
@@ -184,12 +184,12 @@ function writeTextUI() {
   button1C.style('width', '6vmax');
   button1C.style('border-radius', '0.5vmax')
   button1C.mousePressed(rake2);
-  button2.style('background-color', colH2);
-  button2.style('font-size', '1.75vmax');
-  button2.style('color', 'black');
-  button2.style('border-radius', '0.5vmax')
-  button2.style('width', '10vmax')
-  button2.mousePressed(enterFS);
+  // button2.style('background-color', colH2);
+  // button2.style('font-size', '1.75vmax');
+  // button2.style('color', 'black');
+  // button2.style('border-radius', '0.5vmax')
+  // button2.style('width', '10vmax')
+  // button2.mousePressed(enterFS);
   button3.style('background-color', colH3);
   button3.style('font-size', '1.75vmax');
   button3.style('color', 'white');
@@ -307,16 +307,17 @@ function reset() {
   }
 }
 
-// function windowResized() {
-//   removeElements();
-//   resizeCanvas(windowWidth, windowHeight);
-//   bLayer.width = windowWidth;
-//   bLayer.height = windowHeight;
-//   pLayer.width = windowWidth;
-//   pLayer.height = windowHeight;
-//   findLongEdge();
-//   writeTextUI();
-//     //image(img_background, 0, 0, width, height);
-//
-//
-// }
+function windowResized() {
+  removeElements();
+  setup();
+  // resizeCanvas(windowWidth, windowHeight);
+  // bLayer.width = windowWidth;
+  // bLayer.height = windowHeight;
+  // pLayer.width = windowWidth;
+  // pLayer.height = windowHeight;
+  // findLongEdge();
+  // writeTextUI();
+    //image(img_background, 0, 0, width, height);
+
+
+}
