@@ -53,13 +53,13 @@ function setup() {
   findLongEdge();
 
   // set brush sizes relative to width, must be below findLongEdge
-  img_brush.resize(longEdge / 50, longEdge / 30);
-  img_rake.resize(longEdge / 45, longEdge / 20);
-  img_rake2.resize(longEdge / 60, longEdge / 10);
+  img_brush.resize(longEdge / 35, longEdge / 20);
+  img_rake.resize(longEdge / 35, longEdge / 20);
+  img_rake2.resize(longEdge / 40, longEdge / 7);
 
   writeTextUI();
 
-  bLayer.tint(255, 170);
+  bLayer.tint(255, 190);
 }
 
 function findLongEdge(){
