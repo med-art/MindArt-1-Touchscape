@@ -307,16 +307,16 @@ function reset() {
   }
 }
 
-function windowResized() {
-  removeElements();
-  resizeCanvas(windowWidth, windowHeight);
-  bLayer.width = windowWidth;
-  bLayer.height = windowHeight;
-  pLayer.width = windowWidth;
-  pLayer.height = windowHeight;
-  findLongEdge();
-  writeTextUI();
-    //image(img_background, 0, 0, width, height);
-
-
-}
+// function windowResized() {
+//   removeElements();
+//   resizeCanvas(windowWidth, windowHeight);
+//   bLayer.width = windowWidth;
+//   bLayer.height = windowHeight;
+//   pLayer.width = windowWidth;
+//   pLayer.height = windowHeight;
+//   findLongEdge();
+//   writeTextUI();
+//     //image(img_background, 0, 0, width, height);
+//
+//
+// }
