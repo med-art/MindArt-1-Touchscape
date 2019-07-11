@@ -168,7 +168,7 @@ function writeTextUI() {
   button1A.style('background-color', colSelect)
   button1A.style('font-size', '1.5vmax');
   button1A.style('color', 'white');
-  button1A.style('width', vmax*1.5);
+  button1A.style('width', '6vmax');
   button1A.style('border-radius', '0.5vmax')
   button1A.style('border', '3px solid white')
   button1A.mousePressed(rake0);
@@ -310,7 +310,7 @@ function reset() {
 function windowResized() {
   removeElements();
 
-  setTimeout(setup, 500);
+  setTimeout(setup, 2000);
 
   // resizeCanvas(windowWidth, windowHeight);
   //  bLayer.width = windowWidth;
