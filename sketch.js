@@ -168,10 +168,10 @@ function writeTextUI() {
   // button2.position(windowWidth - (10 * vmax) - (textMargin * 3), vmax * 1);
   button3.position(windowWidth - (10 * vmax) - (textMargin * 5), windowHeight - vmax * 4);
 
-  const col = color(0, 0, 0, 0.1);
-  const colSelect = color(0, 0, 0, 1);
-  const colH2 = color(230, 20, 74);
-  const colH3 = color(355, 87, 74);
+ col = color(0, 0, 0, 0.1);
+  colSelect = color(0, 0, 0, 1);
+  colH2 = color(230, 20, 74);
+  colH3 = color(355, 87, 74);
 
   button1A.style('background-color', colSelect)
   button1A.style('font-size', '1.5vmax');
