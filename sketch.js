@@ -45,22 +45,32 @@ function setup() {
   bLayer = createGraphics(windowWidth, windowHeight);
   pLayer = createGraphics(windowWidth, windowHeight);
   pixelDensity(1); // effectively ignores retina displays
-  img_background.loadPixels();
-  image(img_background, 0, 0, width, height);
+
+  sizeWindow();
   colorMode(HSB, 360, 100, 100, 1.0);
+}
+
+function sizeWindow(){
+  resizeCanvas(windowWidth, windowHeight);
+  image(img_background, 0, 0, width, height);
+
+  var newbLayer = createGraphics(windowWidth, windowHeight);
+    newbLayer.image(bLayer, 0, 0, windowWidth, windowHeight);
+    bLayer = newbLayer;
+
+    // var newpLayer = createGraphics(windowWidth, windowHeight);
+    //   newpLayer.image(pLayer, 0, 0, windowWidth, windowHeight);
+    //   pLayer = newpLayer;
+
 
 
   segLength = width / 15;
-
   findLongEdge();
-
   // set brush sizes relative to width, must be below findLongEdge
   img_brush.resize(longEdge / 35, longEdge / 20);
   img_rake.resize(longEdge / 35, longEdge / 20);
   img_rake2.resize(longEdge / 40, longEdge / 11);
-
   writeTextUI();
-
   bLayer.tint(255, 190);
 }
 
@@ -211,24 +221,6 @@ function touchMoved() {
 
       bLayer.blendMode(BLEND);
 
-  // if (bool_button1 === 3) {
-  //   blendMode(BLEND);
-  //
-  //   loadPixels();
-  //   for (let y = (winMouseY - 20); y < (winMouseY + 20); y++) {
-  //     for (let x = (winMouseX - 20); x < (winMouseX + 20); x++) {
-  //       let index = (x + y * width) * 4;
-  //       // Below, the reason for adding the existing pixels back on is to fake a 50%
-  //       // opacity/alpha, which I suspect is not otherwise possible with a Pixel update
-  //       // The opacity feels too strong, consder revising to give 2/3 weight to the old values
-  //       pixels[index + 0] = (img_background.pixels[index + 0]);
-  //       pixels[index + 1] = (img_background.pixels[index + 1]);
-  //       pixels[index + 2] = (img_background.pixels[index + 2]);
-  //
-  //     }
-  //   }
-  //   updatePixels();
-  // }
 
   if (bool_button1 === 0) {
 
@@ -310,7 +302,7 @@ function reset() {
 function windowResized() {
   removeElements();
 
-  setTimeout(setup, 2000);
+  sizeWindow();
 
   // resizeCanvas(windowWidth, windowHeight);
   //  bLayer.width = windowWidth;
