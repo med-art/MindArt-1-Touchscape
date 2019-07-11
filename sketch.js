@@ -310,7 +310,7 @@ function reset() {
 function windowResized() {
   removeElements();
 
-  setup();
+  setTimeout(setup, 500);
 
   // resizeCanvas(windowWidth, windowHeight);
   //  bLayer.width = windowWidth;
