@@ -47,7 +47,7 @@ function setup() {
   pixelDensity(1); // effectively ignores retina displays
 
   colorMode(HSB, 360, 100, 100, 1.0);
-  sizeWindow();
+  setTimeout(sizeWindow, 1000);
 }
 
 function sizeWindow(){
@@ -70,7 +70,7 @@ function sizeWindow(){
   img_brush.resize(longEdge / 35, longEdge / 20);
   img_rake.resize(longEdge / 35, longEdge / 20);
   img_rake2.resize(longEdge / 40, longEdge / 11);
-  setTimeout(writeTextUI, 200);
+  setTimeout(writeTextUI, 1000);
   bLayer.tint(255, 190);
 }
 
