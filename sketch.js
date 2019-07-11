@@ -46,8 +46,8 @@ function setup() {
   pLayer = createGraphics(windowWidth, windowHeight);
   pixelDensity(1); // effectively ignores retina displays
 
-  sizeWindow();
   colorMode(HSB, 360, 100, 100, 1.0);
+  sizeWindow();
 }
 
 function sizeWindow(){
@@ -58,9 +58,9 @@ function sizeWindow(){
     newbLayer.image(bLayer, 0, 0, windowWidth, windowHeight);
     bLayer = newbLayer;
 
-    // var newpLayer = createGraphics(windowWidth, windowHeight);
-    //   newpLayer.image(pLayer, 0, 0, windowWidth, windowHeight);
-    //   pLayer = newpLayer;
+     var newpLayer = createGraphics(windowWidth, windowHeight);
+       newpLayer.image(pLayer, 0, 0, windowWidth, windowHeight);
+       pLayer = newpLayer;
 
 
 
@@ -70,7 +70,7 @@ function sizeWindow(){
   img_brush.resize(longEdge / 35, longEdge / 20);
   img_rake.resize(longEdge / 35, longEdge / 20);
   img_rake2.resize(longEdge / 40, longEdge / 11);
-  writeTextUI();
+  setTimeout(writeTextUI, 200);
   bLayer.tint(255, 190);
 }
 
@@ -92,13 +92,12 @@ function draw() {
 image(img_background, 0, 0, width, height);
 
 
-    // Always draw pebbles over the top of each layer
-  for (let k = 0; k < tempcount; k++) {
-    pLayer.image(pebbleu[tempID[k]], tempX[k], tempY[k], randomScalar[k], randomScalar[k]);
-  }
+  //   // Always draw pebbles over the top of each layer
+  // for (let k = 0; k < tempcount; k++) {
+  //   pLayer.image(pebbleu[tempID[k]], tempX[k], tempY[k], randomScalar[k], randomScalar[k]);
+  // }
 
     blendMode(OVERLAY);
-
     image(bLayer, 0, 0, windowWidth, windowHeight);
 
     blendMode(BLEND);
