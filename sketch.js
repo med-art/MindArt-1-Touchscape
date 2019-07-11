@@ -57,7 +57,7 @@ function setup() {
   // set brush sizes relative to width, must be below findLongEdge
   img_brush.resize(longEdge / 35, longEdge / 20);
   img_rake.resize(longEdge / 35, longEdge / 20);
-  img_rake2.resize(longEdge / 40, longEdge / 7);
+  img_rake2.resize(longEdge / 40, longEdge / 11);
 
   writeTextUI();
 
