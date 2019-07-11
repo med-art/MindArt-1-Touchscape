@@ -47,20 +47,20 @@ function setup() {
   pixelDensity(1); // effectively ignores retina displays
 
   colorMode(HSB, 360, 100, 100, 1.0);
-  setTimeout(sizeWindow, 1000);
+  sizeWindow();
 }
 
-function sizeWindow(){
+function sizeWindow() {
   resizeCanvas(windowWidth, windowHeight);
   image(img_background, 0, 0, width, height);
 
   var newbLayer = createGraphics(windowWidth, windowHeight);
-    newbLayer.image(bLayer, 0, 0, windowWidth, windowHeight);
-    bLayer = newbLayer;
+  newbLayer.image(bLayer, 0, 0, windowWidth, windowHeight);
+  bLayer = newbLayer;
 
-     var newpLayer = createGraphics(windowWidth, windowHeight);
-       newpLayer.image(pLayer, 0, 0, windowWidth, windowHeight);
-       pLayer = newpLayer;
+  var newpLayer = createGraphics(windowWidth, windowHeight);
+  newpLayer.image(pLayer, 0, 0, windowWidth, windowHeight);
+  pLayer = newpLayer;
 
 
 
@@ -70,15 +70,14 @@ function sizeWindow(){
   img_brush.resize(longEdge / 35, longEdge / 20);
   img_rake.resize(longEdge / 35, longEdge / 20);
   img_rake2.resize(longEdge / 40, longEdge / 11);
-  setTimeout(writeTextUI, 1000);
+  writeTextUI();
   bLayer.tint(255, 190);
 }
 
-function findLongEdge(){
-  if (width > height){
+function findLongEdge() {
+  if (width > height) {
     longEdge = width;
-  }
-  else{
+  } else {
     longEdge = height;
   }
 }
@@ -89,7 +88,7 @@ function draw() {
 
   blendMode(BLEND);
 
-image(img_background, 0, 0, width, height);
+  image(img_background, 0, 0, width, height);
 
 
   //   // Always draw pebbles over the top of each layer
@@ -97,11 +96,11 @@ image(img_background, 0, 0, width, height);
   //   pLayer.image(pebbleu[tempID[k]], tempX[k], tempY[k], randomScalar[k], randomScalar[k]);
   // }
 
-    blendMode(OVERLAY);
-    image(bLayer, 0, 0, windowWidth, windowHeight);
+  blendMode(OVERLAY);
+  image(bLayer, 0, 0, windowWidth, windowHeight);
 
-    blendMode(BLEND);
-    image(pLayer, 0, 0, windowWidth, windowHeight);
+  blendMode(BLEND);
+  image(pLayer, 0, 0, windowWidth, windowHeight);
 
 }
 
@@ -169,10 +168,10 @@ function writeTextUI() {
   // button2.position(windowWidth - (10 * vmax) - (textMargin * 3), vmax * 1);
   button3.position(windowWidth - (10 * vmax) - (textMargin * 5), windowHeight - vmax * 4);
 
-  col = color(0, 0, 0, 0.1);
-  colSelect = color(0, 0, 0, 1);
-  colH2 = color(230, 20, 74);
-  colH3 = color(355, 87, 74);
+  const col = color(0, 0, 0, 0.1);
+  const colSelect = color(0, 0, 0, 1);
+  const colH2 = color(230, 20, 74);
+  const colH3 = color(355, 87, 74);
 
   button1A.style('background-color', colSelect)
   button1A.style('font-size', '1.5vmax');
@@ -209,8 +208,8 @@ function writeTextUI() {
 
 function enterFS() {
 
-    let fs = fullscreen();
-    fullscreen(!fs);
+  let fs = fullscreen();
+  fullscreen(!fs);
 
 }
 
@@ -218,12 +217,12 @@ function touchMoved() {
 
 
 
-      bLayer.blendMode(BLEND);
+  bLayer.blendMode(BLEND);
 
 
   if (bool_button1 === 0) {
 
-;
+    ;
 
     dx = winMouseX - rake3X;
     dy = winMouseY - rake3Y;
@@ -272,7 +271,7 @@ function segment(rakeX, rakeY, a, rake) {
   bLayer.pop();
 }
 
-function resetTimeout(){
+function resetTimeout() {
   setTimeout(reset, 50);
 }
 
@@ -310,7 +309,7 @@ function windowResized() {
   //  pLayer.height = windowHeight;
   //  findLongEdge();
   //  writeTextUI();
-   //image(img_background, 0, 0, width, height);
+  //image(img_background, 0, 0, width, height);
 
 
 }
