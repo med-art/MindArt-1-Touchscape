@@ -163,11 +163,11 @@ function writeTextUI() {
   // button2 = createButton('Full screen');
   button3 = createButton('New drawing');
 
-  button1A.position(textMargin, windowHeight - vmax * 8);
-  button1B.position((vmax * 7) + textMargin, windowHeight - vmax * 8);
-  button1C.position((vmax * 14) + textMargin, windowHeight - vmax * 8);
+  button1A.position(textMargin, windowHeight - vmax * 10);
+  button1B.position((vmax * 8) + textMargin, windowHeight - vmax * 10);
+  button1C.position((vmax * 16) + textMargin, windowHeight - vmax * 10);
   // button2.position(windowWidth - (10 * vmax) - (textMargin * 3), vmax * 1);
-  button3.position(windowWidth - (10 * vmax) - (textMargin * 5), windowHeight - vmax * 4);
+  button3.position(windowWidth - (10 * vmax) - (textMargin * 5), windowHeight - vmax * 6);
 
  col = color(0, 0, 0, 0.1);
   colSelect = color(0, 0, 0, 1);
@@ -177,20 +177,20 @@ function writeTextUI() {
   button1A.style('background-color', colSelect)
   button1A.style('font-size', '1.5vmax');
   button1A.style('color', 'white');
-  button1A.style('width', '6vmax');
+  button1A.style('width', '7vmax');
   button1A.style('border-radius', '0.5vmax')
   button1A.style('border', '3px solid white')
   button1A.mousePressed(rake0);
   button1B.style('background-color', col)
   button1B.style('font-size', '1.5vmax');
   button1B.style('color', 'grey');
-  button1B.style('width', '6vmax');
+  button1B.style('width', '7vmax');
   button1B.style('border-radius', '0.5vmax')
   button1B.mousePressed(rake1);
   button1C.style('background-color', col)
   button1C.style('font-size', '1.5vmax');
   button1C.style('color', 'grey');
-  button1C.style('width', '6vmax');
+  button1C.style('width', '7vmax');
   button1C.style('border-radius', '0.5vmax')
   button1C.mousePressed(rake2);
   // button2.style('background-color', colH2);
