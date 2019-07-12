@@ -68,7 +68,7 @@ function sizeWindow() {
   segLength = width / 15;
   findLongEdge();
   // set brush sizes relative to width, must be below findLongEdge
-  img_brush.resize(longEdge / 40, longEdge / 20);
+  img_brush.resize(longEdge / 40, longEdge / 35);
   img_rake.resize(longEdge / 40, longEdge / 20);
   img_rake2.resize(longEdge / 40, longEdge / 11);
   writeTextUI();
