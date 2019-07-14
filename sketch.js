@@ -23,7 +23,7 @@ let longEdge;
 
 function preload() {
   //load all brush assets and background
-  img_brush = loadImage('assets/brushA.png');
+  img_brush = loadImage('assets/brushB.png');
   img_rake = loadImage('assets/rake1b.png');
   img_rake2 = loadImage('assets/rake2b.png');
   img_background = loadImage('assets/sand_01.jpg')
@@ -39,6 +39,8 @@ function preload() {
   for (let i = 1; i < 8; i++) {
     pebbleu[i] = loadImage('assets/wpebbleu' + i + '.png');
   }
+
+        audio = loadSound('assets/audio.mp3');
 }
 
 function setup() {
@@ -49,6 +51,7 @@ function setup() {
 
   colorMode(HSB, 360, 100, 100, 1.0);
   sizeWindow();
+      audio.loop();
 }
 
 function sizeWindow() {
@@ -68,7 +71,7 @@ function sizeWindow() {
   segLength = width / 15;
   findLongEdge();
   // set brush sizes relative to width, must be below findLongEdge
-  img_brush.resize(longEdge / 80, longEdge / 20);
+  img_brush.resize(longEdge / 50, longEdge / 20);
   img_rake.resize(longEdge / 60, longEdge / 20);
   img_rake2.resize(longEdge / 45, longEdge / 11);
   writeTextUI();
