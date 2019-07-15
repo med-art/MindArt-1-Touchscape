@@ -222,13 +222,15 @@ function enterFS() {
 
 }
 
-function mousePressed() {
+function touchStarted() {
   if (audio.isPlaying()) {
   // .isPlaying() returns a boolean
 
 } else {
 audio.loop();
 }
+
+return false;
 }
 
 
