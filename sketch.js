@@ -40,7 +40,7 @@ function preload() {
     pebbleu[i] = loadImage('assets/wpebbleu' + i + '.png');
   }
 
-        audio = loadSound('assets/audio3.mp3');
+        audio = loadSound('assets/audio.mp3');
 }
 
 function setup() {
