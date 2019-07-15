@@ -222,7 +222,10 @@ function enterFS() {
 
 }
 
-function touchStarted() {
+
+
+function touchMoved() {
+
 
   if (audio.isPlaying()) {
   // .isPlaying() returns a boolean
@@ -230,12 +233,6 @@ function touchStarted() {
 } else {
 audio.play();
 }
-
-}
-
-function touchMoved() {
-
-
 
 
 
