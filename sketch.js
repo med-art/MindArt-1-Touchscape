@@ -1,5 +1,5 @@
 function preload() {
- mySound = loadSound('assets/audio.mp3');
+ mySound = loadSound('assets/audio3.wav');
 }
 
 function setup() {
