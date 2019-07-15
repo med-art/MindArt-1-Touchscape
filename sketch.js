@@ -40,7 +40,7 @@ function preload() {
     pebbleu[i] = loadImage('assets/wpebbleu' + i + '.png');
   }
 
-        audio = loadSound('assets/audio.mp3');
+        audio = loadSound('assets/audio3.mp3');
 }
 
 function setup() {
@@ -51,7 +51,7 @@ function setup() {
 
   colorMode(HSB, 360, 100, 100, 1.0);
   sizeWindow();
-      audio.loop();
+      //audio.loop();
 }
 
 function sizeWindow() {
@@ -217,7 +217,20 @@ function enterFS() {
 
 }
 
+function touchStarted() {
+
+  if (audio.isPlaying()) {
+  // .isPlaying() returns a boolean
+
+} else {
+audio.loop();
+}
+
+}
+
 function touchMoved() {
+
+
 
 
 
