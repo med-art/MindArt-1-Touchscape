@@ -222,7 +222,7 @@ function enterFS() {
 
 }
 
-function mouseDragged() {
+function mousePressed() {
   if (audio.isPlaying()) {
   // .isPlaying() returns a boolean
 
