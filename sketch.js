@@ -6,3 +6,7 @@ function setup() {
   mySound.setVolume(0.1);
   mySound.play();
 }
+
+function mousePressed(){
+    mySound.play();
+}
