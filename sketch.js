@@ -21,7 +21,7 @@ let rakeX = 0,
 //button spacing
 let longEdge;
 
-let audio;
+let audio1;
 
 function preload() {
   //load all brush assets and background
@@ -43,7 +43,7 @@ function preload() {
   }
 
 
-    audio = loadSound('assets/audio3.mp3');
+    audio1 = loadSound('assets/audio3.mp3');
 
 
 }
@@ -224,11 +224,11 @@ function enterFS() {
 
 function mousePressed() {
 
-  if (audio.isPlaying()) {
+  if (audio1.isPlaying()) {
   // .isPlaying() returns a boolean
 
 } else {
-audio.play();
+audio1.play();
 }
 
 }
