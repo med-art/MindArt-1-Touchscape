@@ -168,16 +168,17 @@ function writeTextUI() {
   button1A = createImg('assets/gui1.png');
   button1B = createImg('assets/gui2.png');
   button1C = createImg('assets/gui3.png');
+  button2 = createImg('assets/gui4.png');
   // button2 = createButton('Full screen');
   button3 = createButton('New drawing');
 
   button1A.position(textMargin, windowHeight - vmax * 10);
   button1B.position((vmax * 8) + textMargin, windowHeight - vmax * 10);
   button1C.position((vmax * 16) + textMargin, windowHeight - vmax * 10);
-  // button2.position(windowWidth - (10 * vmax) - (textMargin * 3), vmax * 1);
+  button2.position(windowWidth - (10 * vmax) - (textMargin), vmax * 1);
   button3.position(windowWidth - (10 * vmax) - (textMargin * 5), windowHeight - vmax * 6);
 
- col = color(0, 0, 0, 0.1);
+  col = color(0, 0, 0, 0.1);
   colSelect = color(0, 0, 0, 1);
   colH2 = color(230, 20, 74);
   colH3 = color(355, 87, 74);
@@ -201,18 +202,23 @@ function writeTextUI() {
   button1C.style('width', '7vmax');
   button1C.style('border-radius', '0.5vmax')
   button1C.mousePressed(rake2);
-  // button2.style('background-color', colH2);
-  // button2.style('font-size', '1.75vmax');
-  // button2.style('color', 'black');
-  // button2.style('border-radius', '0.5vmax')
-  // button2.style('width', '10vmax')
-  // button2.mousePressed(enterFS);
+
+   button2.style('background-color', colH2);
+   button2.style('font-size', '1.75vmax');
+   button2.style('color', 'black');
+   button2.style('border-radius', '3.5vmax')
+   button2.style('width', '7vmax')
+   button2.mousePressed(switchSound);
+
   button3.style('background-color', colH3);
   button3.style('font-size', '1.75vmax');
   button3.style('color', 'white');
   button3.style('border-radius', '0.5vmax')
   button3.style('width', '12vmax')
   button3.mousePressed(resetTimeout);
+
+
+
 }
 
 function enterFS() {
@@ -222,7 +228,7 @@ function enterFS() {
 
 }
 
-function mousePressed() {
+function switchSound() {
   if (audio.isPlaying()) {
   // .isPlaying() returns a boolean
 
