@@ -41,11 +41,11 @@ function preload() {
   for (let i = 1; i < 8; i++) {
     pebbleu[i] = loadImage('assets/wpebbleu' + i + '.png');
   }
-<<<<<<< HEAD
+
 
     audio = loadSound('assets/audio3.mp3');
-=======
->>>>>>> parent of 9ed3a1e... AudioIntegration
+
+
 }
 
 function setup() {
@@ -56,10 +56,7 @@ function setup() {
 
   colorMode(HSB, 360, 100, 100, 1.0);
   sizeWindow();
-<<<<<<< HEAD
-      //audio.loop();
-=======
->>>>>>> parent of 9ed3a1e... AudioIntegration
+
 }
 
 function sizeWindow() {
