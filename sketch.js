@@ -230,7 +230,7 @@ function enterFS() {
 
 function switchSound() {
   if (audio.isPlaying()) {
-  audio.pause();
+  audio.stop();
 
 } else {
 audio.loop();
