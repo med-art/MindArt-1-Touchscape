@@ -21,6 +21,8 @@ let rakeX = 0,
 //button spacing
 let longEdge;
 
+let audio;
+
 function preload() {
   //load all brush assets and background
   img_brush = loadImage('assets/brushB.png');
@@ -40,7 +42,7 @@ function preload() {
     pebbleu[i] = loadImage('assets/wpebbleu' + i + '.png');
   }
 
-        audio = loadSound('assets/audio3.mp3');
+    audio = loadSound('assets/audio3.mp3');
 }
 
 function setup() {
