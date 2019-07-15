@@ -223,19 +223,12 @@ function enterFS() {
 }
 
 function mousePressed() {
-
-  if (audio1.isPlaying()) {
-  // .isPlaying() returns a boolean
-
-} else {
 audio1.play();
-}
-
 }
 
 function touchMoved() {
 
-
+audio1.play();
 
 
 
