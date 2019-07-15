@@ -228,7 +228,7 @@ function mousePressed() {
   // .isPlaying() returns a boolean
 
 } else {
-audio.loop();
+audio.play();
 }
 
 }
