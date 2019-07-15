@@ -43,7 +43,7 @@ function preload() {
   }
 
 
-    audio1 = loadSound('assets/audio3.mp3');
+    audio1 = loadSound('assets/audio.mp3');
 
 
 }
