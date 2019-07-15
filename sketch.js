@@ -222,16 +222,14 @@ function enterFS() {
 
 }
 
-function touchStarted() {
+function touchEnded() {
+  if (audio.isPlaying()) {
+  // .isPlaying() returns a boolean
 
-    if (audio.isPlaying()) {
-    // .isPlaying() returns a boolean
-
-  } else {
-  audio.play();
-  }
+} else {
+audio.loop();
 }
-
+}
 
 
 function touchMoved() {
