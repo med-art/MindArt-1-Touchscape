@@ -231,9 +231,11 @@ function enterFS() {
 function switchSound() {
   if (audio.isPlaying()) {
   audio.stop();
+    button2 = createImg('assets/gui4.png');
 
 } else {
 audio.loop();
+  button2 = createImg('assets/gui5.png');
 }
 
 return false;
