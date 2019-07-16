@@ -76,10 +76,12 @@ function sizeWindow() {
   segLength = width / 15;
   findLongEdge();
   // set brush sizes relative to width, must be below findLongEdge
-  img_brush.resize(longEdge / 60, longEdge / 20);
+  img_brush.resize(longEdge / 35, longEdge / 20);
   img_rake.resize(longEdge / 60, longEdge / 20);
-  img_rake2.resize(longEdge / 45, longEdge / 11);
+  img_rake2.resize(longEdge / 30, longEdge / 12);
+    button2 = createImg('assets/gui5.png'); // really need to make this better by adding another function.
   writeTextUI();
+  writeTextUIAudio();
   bLayer.tint(255, 190);
 }
 
@@ -156,6 +158,23 @@ function rake2() {
   button1C.style('border', '3px solid white')
 }
 
+function writeTextUIAudio() {
+  textSize(longEdge / 50);
+  fill(0);
+  noStroke();
+  let vmax = longEdge / 100; // suspect we may have issue here with IOS in terms of rotation and measuring height, etc
+  let textMargin = longEdge / 100; // consolidate into above - no point having 2
+button2.position(windowWidth - (10 * vmax) - (textMargin), vmax * 1);
+button2.style('background-color', colH2);
+button2.style('font-size', '1.75vmax');
+button2.style('color', 'black');
+button2.style('border-radius', '3.5vmax')
+button2.style('width', '7vmax')
+button2.mousePressed(switchSound);
+
+
+}
+
 
 function writeTextUI() {
   textSize(longEdge / 50);
@@ -168,14 +187,14 @@ function writeTextUI() {
   button1A = createImg('assets/gui1.png');
   button1B = createImg('assets/gui2.png');
   button1C = createImg('assets/gui3.png');
-  button2 = createImg('assets/gui4.png');
+
   // button2 = createButton('Full screen');
   button3 = createButton('New drawing');
 
   button1A.position(textMargin, windowHeight - vmax * 10);
   button1B.position((vmax * 8) + textMargin, windowHeight - vmax * 10);
   button1C.position((vmax * 16) + textMargin, windowHeight - vmax * 10);
-  button2.position(windowWidth - (10 * vmax) - (textMargin), vmax * 1);
+
   button3.position(windowWidth - (10 * vmax) - (textMargin * 5), windowHeight - vmax * 6);
 
   col = color(0, 0, 0, 0.1);
@@ -203,12 +222,6 @@ function writeTextUI() {
   button1C.style('border-radius', '0.5vmax')
   button1C.mousePressed(rake2);
 
-   button2.style('background-color', colH2);
-   button2.style('font-size', '1.75vmax');
-   button2.style('color', 'black');
-   button2.style('border-radius', '3.5vmax')
-   button2.style('width', '7vmax')
-   button2.mousePressed(switchSound);
 
   button3.style('background-color', colH3);
   button3.style('font-size', '1.75vmax');
@@ -226,16 +239,25 @@ function enterFS() {
   let fs = fullscreen();
   fullscreen(!fs);
 
+
 }
 
 function switchSound() {
   if (audio.isPlaying()) {
   audio.stop();
-    button2 = createImg('assets/gui4.png');
+  button2.remove();
+button2 = createImg('assets/gui5.png');
+
+writeTextUIAudio();
+
+
 
 } else {
 audio.loop();
-  button2 = createImg('assets/gui5.png');
+button2.remove();
+button2 = createImg('assets/gui4.png');
+writeTextUIAudio();
+
 }
 
 return false;
