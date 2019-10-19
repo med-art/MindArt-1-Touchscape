@@ -1,8 +1,9 @@
 .sketch {
   height: 100%;
-  overscroll-behavior: none;
+//  overscroll-behavior: none;
   position: fixed;
 }
+
 
 .loadingclass {
   margin: 0;
