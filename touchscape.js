@@ -53,9 +53,10 @@ function setup() {
   bLayer = createGraphics(windowWidth, windowHeight);
   pLayer = createGraphics(windowWidth, windowHeight);
   pixelDensity(1); // effectively ignores retina displays
-
   colorMode(HSB, 360, 100, 100, 1.0);
+  calcDimensions();
   sizeWindow();
+
 
 }
 
@@ -81,7 +82,6 @@ function sizeWindow() {
   img_rake2.resize(longEdge / 30, longEdge / 9);
     button2 = createImg('assets/gui5.png'); // really need to make this better by adding another function.
   writeTextUI();
-  writeTextUIAudio();
   bLayer.tint(255, 190);
 }
 
