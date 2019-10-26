@@ -126,7 +126,7 @@ function touchMoved() {
 
   if (bool_button1 === 0) {
 
-    ;
+    
 
     dx = winMouseX - rake3X;
     dy = winMouseY - rake3Y;
@@ -166,9 +166,9 @@ function touchMoved() {
   if (bool_button1 === 3) {
 
 
-bLayer.fill(127, 25);
+bLayer.fill(127, 100);
 bLayer.noStroke();
-bLayer.ellipse(mouseX,mouseY, vMax*6, vMax*6);
+bLayer.ellipse(mouseX,mouseY, vMax*8, vMax*8);
   }
 
 
