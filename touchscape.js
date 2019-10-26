@@ -65,11 +65,11 @@ function sizeWindow() {
   image(img_background, 0, 0, width, height);
 
   var newbLayer = createGraphics(windowWidth, windowHeight);
-  newbLayer.image(bLayer, 0, 0, windowWidth, windowHeight);
+  newbLayer.image(bLayer, 0, 0, windowWidth, windowWidth);
   bLayer = newbLayer;
 
   var newpLayer = createGraphics(windowWidth, windowHeight);
-  newpLayer.image(pLayer, 0, 0, windowWidth, windowHeight);
+  newpLayer.image(pLayer, 0, 0, windowWidth, windowWidth);
   pLayer = newpLayer;
 
 
@@ -163,6 +163,15 @@ function touchMoved() {
     segment(rake2X, rake2Y, angle1, img_rake2)
   }
 
+  if (bool_button1 === 3) {
+
+
+bLayer.fill(127, 25);
+bLayer.noStroke();
+bLayer.ellipse(mouseX,mouseY, vMax*6, vMax*6);
+  }
+
+
   return false;
 }
 
@@ -203,7 +212,6 @@ function reset() {
 
 function windowResized() {
   removeElements();
-
   sizeWindow();
 
   // resizeCanvas(windowWidth, windowHeight);

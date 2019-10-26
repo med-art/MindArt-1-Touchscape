@@ -102,19 +102,15 @@ return false; // is this needed
 
 function fs(){
 
-  fsButton.remove();
-
 
  if (!fsBool){
    fullscreen(1);
-
    fsBool = 1;
  }
 
  else{
 
    fullscreen(0);
-
    fsBool = 0;
 
  }
@@ -132,7 +128,7 @@ function removeAll(){
 
 function rake1() {
   //removeAll();
-  bool_button1 = 4;
+  bool_button1 = 3;
   selector.position(0, windowHeight - vMax * 15);
 
 
