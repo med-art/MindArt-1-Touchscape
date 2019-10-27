@@ -22,6 +22,10 @@ let rakeX = 0,
 let longEdge;
 
 let audio;
+let hMax, lMax;
+
+let driftX, driftY;
+let inverter = 1;
 
 function preload() {
   //load all brush assets and background
@@ -43,7 +47,7 @@ function preload() {
   }
 
 
-    audio = loadSound('assets/audio3.mp3');
+    audio = loadSound('assets/audio.mp3');
 
 
 }
@@ -52,11 +56,13 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   bLayer = createGraphics(windowWidth, windowHeight);
   pLayer = createGraphics(windowWidth, windowHeight);
+  textLayer = createGraphics(windowWidth, windowHeight);
+  introLayer = createGraphics(windowWidth, windowHeight);
   pixelDensity(1); // effectively ignores retina displays
   colorMode(HSB, 360, 100, 100, 1.0);
   calcDimensions();
   sizeWindow();
-
+  slideShow();
 
 }
 
@@ -80,20 +86,29 @@ function sizeWindow() {
   img_brush.resize(longEdge / 35, longEdge / 20);
   img_rake.resize(longEdge / 40, longEdge / 10);
   img_rake2.resize(longEdge / 30, longEdge / 9);
-    button2 = createImg('assets/gui5.png'); // really need to make this better by adding another function.
-  writeTextUI();
+
+  //writeTextUI();
   bLayer.tint(255, 190);
+
+  driftX = width/2;
+  driftY = 0;
 }
 
 function findLongEdge() {
   if (width > height) {
     longEdge = width;
+    lMax = width/100;
   } else {
     longEdge = height;
+    hMax = height/100;
   }
+  vMax = longEdge/100;
 }
 
 function draw() {
+
+  if (introState === 3){
+
 
   imageMode(CORNER);
 
@@ -112,13 +127,41 @@ function draw() {
 
   blendMode(BLEND);
   image(pLayer, 0, 0, windowWidth, windowHeight);
+}
+
+else{
+
+//introLayer.image(textLayer, 0, 0, width, height);
+blendMode(BLEND);
+  image(img_background, 0, 0, width, height);
+blendMode(MULTIPLY);
+image(introLayer, 0, 0, width, height);
+blendMode(BLEND);
+    textLayer.text(introText[slide-1], width/2, (height/6)*(slide+1));
+image(textLayer, 0, 0, width, height);
+
+
+introLayer.blendMode(BLEND);
+introLayer.fill(255, 5);
+introLayer.noStroke();
+introLayer.ellipse(driftX, driftY, vMax*15, vMax*15);
+driftX = driftX+(random(0, 10))*inverter;
+if (driftX <= 40 || driftX >= width-40){
+  inverter = -inverter;
+  driftX = driftX+(30*inverter);
+  console.log(inverter);
+}
+driftY = driftY+(random(-1,2));
+
+
+}
 
 }
 
 function touchMoved() {
 
 
-
+  if (introState === 3){
 
 
   bLayer.blendMode(BLEND);
@@ -126,7 +169,7 @@ function touchMoved() {
 
   if (bool_button1 === 0) {
 
-    
+
 
     dx = winMouseX - rake3X;
     dy = winMouseY - rake3Y;
@@ -170,7 +213,21 @@ bLayer.fill(127, 100);
 bLayer.noStroke();
 bLayer.ellipse(mouseX,mouseY, vMax*8, vMax*8);
   }
+}
+else {
 
+if (audio.isPlaying()){
+
+}
+else {
+      audio.loop();
+    }
+  introLayer.blendMode(BLEND);
+  introLayer.fill(255, 18);
+  introLayer.noStroke();
+  introLayer.ellipse(winMouseX, winMouseY, vMax*15, vMax*15);
+
+}
 
   return false;
 }

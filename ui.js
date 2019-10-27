@@ -3,6 +3,7 @@ let button1, button2, button3, button4, resetButton, saveButton, fsButton, selec
 let fsBool = 0;
 
 
+
 function calcDimensions() {
   vW = width / 100;
 
@@ -88,7 +89,6 @@ function switchSound() {
   if (audio.isPlaying()) {
   audio.stop();
 
-writeTextUIAudio();
 
 
 
