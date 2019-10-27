@@ -231,6 +231,14 @@ bLayer.ellipse(mouseX,mouseY, vMax*8, vMax*8);
   }
 }
 else {
+
+  if (audio.isPlaying()){
+
+  }
+  else {
+        audio.loop();
+      }
+
   introLayer.blendMode(BLEND);
   introLayer.fill(255, 18);
   introLayer.noStroke();
