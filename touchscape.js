@@ -171,24 +171,9 @@ function mousePressed(){
       }
 
 }
- return false();
+ return false;
 }
 
-function mouseMoved(){
-
-  if (introState < 3){
-
-
-  if (audio.isPlaying()){
-
-  }
-  else {
-        audio.loop();
-      }
-
-}
- return false();
-}
 
 
 function touchMoved() {
@@ -298,6 +283,7 @@ function reset() {
 function windowResized() {
   removeElements();
   sizeWindow();
+  writeTextUI();
 
   // resizeCanvas(windowWidth, windowHeight);
   //  bLayer.width = windowWidth;

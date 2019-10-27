@@ -10,7 +10,7 @@ let noiseScale=2;
 function slideShow() {
 
   if (slide === 0){
-    background(205, 70, 80);
+    background(246, 84, 96);
     introLayer.background(70, 158, 222, 255);
   }
 
