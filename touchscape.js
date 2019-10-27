@@ -107,20 +107,15 @@ function findLongEdge() {
 
 function draw() {
 
+
   if (introState === 3){
 
 
   imageMode(CORNER);
-
   blendMode(BLEND);
-
   image(img_background, 0, 0, width, height);
 
 
-  //   // Always draw pebbles over the top of each layer
-  // for (let k = 0; k < tempcount; k++) {
-  //   pLayer.image(pebbleu[tempID[k]], tempX[k], tempY[k], randomScalar[k], randomScalar[k]);
-  // }
 
   blendMode(OVERLAY);
   image(bLayer, 0, 0, windowWidth, windowHeight);
@@ -137,7 +132,11 @@ blendMode(BLEND);
 blendMode(MULTIPLY);
 image(introLayer, 0, 0, width, height);
 blendMode(BLEND);
-    textLayer.text(introText[slide-1], width/2, (height/6)*(slide+1));
+if (slide === 0){
+  textLayer.text(introText[slide], width/2, (height/8)*(slide+2));
+}
+else {
+textLayer.text(introText[slide-1], width/2, (height/6)*(slide));} // this if else statgement needs to be replaced with a better system. The current state tracking is not working
 image(textLayer, 0, 0, width, height);
 
 
@@ -149,7 +148,7 @@ driftX = driftX+(random(0, 10))*inverter;
 if (driftX <= 40 || driftX >= width-40){
   inverter = -inverter;
   driftX = driftX+(30*inverter);
-  console.log(inverter);
+
 }
 driftY = driftY+(random(-1,2));
 
@@ -158,21 +157,7 @@ driftY = driftY+(random(-1,2));
 
 }
 
-function mousePressed(){
 
-  if (introState < 3){
-
-
-  if (audio.isPlaying()){
-
-  }
-  else {
-        audio.loop();
-      }
-
-}
- return false;
-}
 
 
 

@@ -1,4 +1,4 @@
-let introText = ["Look", "Touch", "Listen"];
+let introText = ["Press to Begin", "Look", "Listen", "Touch"];
 let appCol = "#469ede"; // 70, 158, 222
 
 let slide = 0;
@@ -6,6 +6,29 @@ let delayTime = 8000;
 let introState = 0;
 let noiseScale=2;
 
+function mousePressed(){
+
+
+
+  if (introState < 3){
+
+
+  if (audio.isPlaying()){
+
+  }
+  else {
+        audio.loop(5);
+      }
+
+}
+
+if (slide === 0){
+  slide++;
+  slideShow();
+}
+
+ return false;
+}
 
 function slideShow() {
 
@@ -29,13 +52,15 @@ function slideShow() {
     textLayer.textSize(vMax*8);
     textLayer.textAlign(CENTER, CENTER);
     textLayer.rectMode(CENTER);
-    textLayer.text(introText[slide], width/2, (height/6)*(slide+2));
+    textLayer.text(introText[slide], width/2, (height/8)*(slide+2));
+
+if (slide > 0){
 
 
       slide++;
       console.log(slide);
       setTimeout(slideShow, delayTime);
-
+}
 
   }
 }
