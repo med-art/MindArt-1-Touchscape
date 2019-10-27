@@ -174,7 +174,7 @@ function mousePressed(){
     introLayer.noStroke();
     introLayer.ellipse(winMouseX, winMouseY, vMax*15, vMax*15);
 }
-return false();
+// return false();
 }
 
 function touchMoved() {
