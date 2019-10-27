@@ -158,6 +158,25 @@ driftY = driftY+(random(-1,2));
 
 }
 
+function mousePressed(){
+
+  if (introState < 3){
+
+
+  if (audio.isPlaying()){
+
+  }
+  else {
+        audio.loop();
+      }
+    introLayer.blendMode(BLEND);
+    introLayer.fill(255, 18);
+    introLayer.noStroke();
+    introLayer.ellipse(winMouseX, winMouseY, vMax*15, vMax*15);
+}
+return false();
+}
+
 function touchMoved() {
 
 
@@ -216,16 +235,6 @@ bLayer.ellipse(mouseX,mouseY, vMax*8, vMax*8);
 }
 else {
 
-if (audio.isPlaying()){
-
-}
-else {
-      audio.loop();
-    }
-  introLayer.blendMode(BLEND);
-  introLayer.fill(255, 18);
-  introLayer.noStroke();
-  introLayer.ellipse(winMouseX, winMouseY, vMax*15, vMax*15);
 
 }
 
