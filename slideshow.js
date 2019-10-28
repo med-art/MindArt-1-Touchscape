@@ -55,6 +55,9 @@ function slideShow() {
 
 if (slide > 0){
 
+if (slide === introText.length-1){
+  delayTime = 10000;
+}
 
       slide++;
       console.log(slide);
