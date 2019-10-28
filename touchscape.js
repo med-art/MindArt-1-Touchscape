@@ -268,18 +268,10 @@ function reset() {
 }
 
 function windowResized() {
+
+  if (introState === 3){
   removeElements();
   sizeWindow();
   writeTextUI();
-
-  // resizeCanvas(windowWidth, windowHeight);
-  //  bLayer.width = windowWidth;
-  //  bLayer.height = windowHeight;
-  //  pLayer.width = windowWidth;
-  //  pLayer.height = windowHeight;
-  //  findLongEdge();
-  //  writeTextUI();
-  //image(img_background, 0, 0, width, height);
-
-
+}
 }
