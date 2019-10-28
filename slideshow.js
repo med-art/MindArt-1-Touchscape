@@ -1,4 +1,4 @@
-let introText = ["Press to Begin", "Look", "Listen", "Touch"];
+let introText = ["Touch", "Look", "Listen", "Touch"];
 let appCol = "#469ede"; // 70, 158, 222
 
 let slide = 0;
@@ -7,7 +7,6 @@ let introState = 0;
 let noiseScale=2;
 
 function mousePressed(){
-
 
 
   if (introState < 3){

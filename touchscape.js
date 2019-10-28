@@ -139,6 +139,7 @@ else {
 textLayer.text(introText[slide-1], width/2, (height/6)*(slide));} // this if else statgement needs to be replaced with a better system. The current state tracking is not working
 image(textLayer, 0, 0, width, height);
 
+if (slide > 0){
 
 introLayer.blendMode(BLEND);
 introLayer.fill(255, 5);
@@ -151,7 +152,7 @@ if (driftX <= 40 || driftX >= width-40){
 
 }
 driftY = driftY+(random(-1,2));
-
+}
 
 }
 
@@ -219,12 +220,13 @@ bLayer.ellipse(mouseX,mouseY, vMax*8, vMax*8);
 }
 else {
 
+if (slide > 0){
 
   introLayer.blendMode(BLEND);
   introLayer.fill(255, 18);
   introLayer.noStroke();
   introLayer.ellipse(winMouseX, winMouseY, vMax*15, vMax*15);
-
+}
 }
 
   return false;
