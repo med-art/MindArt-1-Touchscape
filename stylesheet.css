@@ -24,9 +24,22 @@ transform: translate(-50%, -50%);
   border-width: 3;
 
   border-radius: 0.7vmax;
-  width: 12vmax;
+  width: 20vmax;
   height: 3vmax;
+}
 
+
+.startButton {
+  font-size: 5vmax;
+  font-family: "AvenirNext";
+  letter-spacing: 1px;
+  font-weight: 700;
+  background-color: transparent;
+  color: white;
+  border-width: 5px;
+  border-radius: 4vmax;
+  width: 24vmax;
+  height: 8vmax;
 }
 
 .box {

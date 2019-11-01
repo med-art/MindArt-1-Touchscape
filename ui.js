@@ -60,21 +60,21 @@ function writeTextUI() {
   selector.position(vMax*13, windowHeight - vMax * 15);
 
   // button2 = createButton('Full screen');
-  resetButton = createButton('New');
+  resetButton = createButton('Nouveau');
     resetButton.position(windowWidth - (10 * vMax) - (vMax * 5), windowHeight - vMax * 6);
 
 
-  saveButton = createButton("Save")
+  saveButton = createButton("Sauvegardez")
   saveButton.class("select");
   saveButton.style('font-size', '2.6vmax');
   saveButton.style('height', '4.5vmax');
-  saveButton.position(width-(15 * vMax), height - (12.5 * vMax));
+  saveButton.position(width-(23 * vMax), height - (12.5 * vMax));
   saveButton.mousePressed(saveImg);
 
   resetButton.class("select");
   resetButton.style('font-size', '2.6vmax');
   resetButton.style('height', '4.5vmax');
-  resetButton.position(width-(15 * vMax), height - (6.5 * vMax));
+  resetButton.position(width-(23 * vMax), height - (6.5 * vMax));
   resetButton.mousePressed(resetTimeout);
 
 
@@ -130,7 +130,7 @@ function rake1() {
   //removeAll();
   bool_button1 = 3;
   selector.position(0, windowHeight - vMax * 15);
-
+    click.play();
 
 }
 
@@ -139,7 +139,7 @@ function rake2() {
   //removeAll();
   bool_button1 = 0;
   selector.position(vMax*13, windowHeight - vMax * 15);
-
+    click.play();
 
 }
 
@@ -147,18 +147,20 @@ function rake2() {
 function rake3() {
   bool_button1 = 1;
   selector.position(vMax*26, windowHeight - vMax * 15);
+      click.play();
 }
 
 
 function rake4() {
   bool_button1 = 2;
   selector.position(vMax*39, windowHeight - vMax * 15);
+      click.play();
 }
 
 
 function saveImg() {
 
-
+    click.play();
 
 
     save('touchscape' + month() + day() + hour() + second() + '.jpg');

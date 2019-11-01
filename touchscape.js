@@ -48,6 +48,7 @@ function preload() {
 
 
     audio = loadSound('assets/audio.mp3');
+    click = loadSound('assets/click.mp3');
 
 
 }
@@ -133,7 +134,7 @@ blendMode(MULTIPLY);
 image(introLayer, 0, 0, width, height);
 blendMode(BLEND);
 if (slide === 0){
-  textLayer.text(introText[slide], width/2, (height/8)*(slide+2));
+  //textLayer.text(introText[slide], width/2, (height/8)*(slide+2));
 }
 else {
 textLayer.text(introText[slide-1], width/2, (height/6)*(slide));} // this if else statgement needs to be replaced with a better system. The current state tracking is not working
@@ -220,7 +221,12 @@ bLayer.ellipse(mouseX,mouseY, vMax*8, vMax*8);
 }
 else {
 
-if (slide > 0){
+  if (slide === 0){
+    slide++;
+    slideShow();
+  }
+
+else if (slide > 0){
 
   introLayer.blendMode(BLEND);
   introLayer.fill(255, 18);
@@ -246,7 +252,7 @@ function resetTimeout() {
 }
 
 function reset() {
-
+    click.play();
   blendMode(REPLACE);
 
   image(img_background, 0, 0, width, height);
