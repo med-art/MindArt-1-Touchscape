@@ -73,11 +73,19 @@ function sizeWindow() {
 
   var newbLayer = createGraphics(windowWidth, windowHeight);
   newbLayer.image(bLayer, 0, 0, windowWidth, windowWidth);
+newbLayer.push();
+  newbLayer.translate(width/2, height/2);
+  newbLayer.rotate(PI/2);
+newbLayer.pop();
   bLayer.resizeCanvas(windowWidth, windowHeight);
   bLayer = newbLayer;
 
   var newpLayer = createGraphics(windowWidth, windowHeight);
   newpLayer.image(pLayer, 0, 0, windowWidth, windowWidth);
+newpLayer.push();
+    newpLayer.translate(width/2, height/2);
+  newpLayer.rotate(PI/2);
+  newpLayer.pop();
   pLayer.resizeCanvas(windowWidth, windowHeight);
   pLayer = newpLayer;
 
