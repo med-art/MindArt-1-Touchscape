@@ -71,13 +71,15 @@ function sizeWindow() {
   resizeCanvas(windowWidth, windowHeight);
   image(img_background, 0, 0, width, height);
 
-  // var newbLayer = createGraphics(windowWidth, windowHeight);
-  // newbLayer.image(bLayer, 0, 0, windowWidth, windowWidth);
-  // bLayer = newbLayer;
-  //
-  // var newpLayer = createGraphics(windowWidth, windowHeight);
-  // newpLayer.image(pLayer, 0, 0, windowWidth, windowWidth);
-  // pLayer = newpLayer;
+  var newbLayer = createGraphics(windowWidth, windowHeight);
+  newbLayer.image(bLayer, 0, 0, windowWidth, windowWidth);
+  bLayer.resizeCanvas(windowWidth, windowHeight);
+  bLayer = newbLayer;
+
+  var newpLayer = createGraphics(windowWidth, windowHeight);
+  newpLayer.image(pLayer, 0, 0, windowWidth, windowWidth);
+  pLayer.resizeCanvas(windowWidth, windowHeight);
+  pLayer = newpLayer;
 
 
 
