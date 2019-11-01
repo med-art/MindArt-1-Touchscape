@@ -66,15 +66,15 @@ function writeTextUI() {
 
   saveButton = createButton("Sauvegardez")
   saveButton.class("select");
-  saveButton.style('font-size', '2.6vmax');
-  saveButton.style('height', '4.5vmax');
-  saveButton.position(width-(23 * vMax), height - (12.5 * vMax));
+  saveButton.style('font-size', '1.7vmax');
+  saveButton.style('height', '5vmax');
+  saveButton.position(width-(16 * vMax), height - (13 * vMax));
   saveButton.mousePressed(saveImg);
 
   resetButton.class("select");
-  resetButton.style('font-size', '2.6vmax');
-  resetButton.style('height', '4.5vmax');
-  resetButton.position(width-(23 * vMax), height - (6.5 * vMax));
+  resetButton.style('font-size', '1.7vmax');
+  resetButton.style('height', '5vmax');
+  resetButton.position(width-(16 * vMax), height - (7 * vMax));
   resetButton.mousePressed(resetTimeout);
 
 

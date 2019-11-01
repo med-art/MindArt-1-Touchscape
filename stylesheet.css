@@ -15,7 +15,7 @@ transform: translate(-50%, -50%);
 }
 
 .select {
-  font-size: 1.5vmax;
+  font-size: 1vmax;
   font-family: "AvenirNext";
   letter-spacing: 1px;
   font-weight: 700;
@@ -24,8 +24,8 @@ transform: translate(-50%, -50%);
   border-width: 3;
 
   border-radius: 0.7vmax;
-  width: 20vmax;
-  height: 3vmax;
+  width: 13vmax;
+  height: 4vmax;
 }
 
 
@@ -37,9 +37,9 @@ transform: translate(-50%, -50%);
   background-color: transparent;
   color: white;
   border-width: 5px;
-  border-radius: 4vmax;
-  width: 24vmax;
-  height: 8vmax;
+  border-radius: 5vmax;
+  width: 28vmax;
+  height: 10vmax;
 }
 
 .box {
