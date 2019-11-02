@@ -63,6 +63,7 @@ function setup() {
   colorMode(HSB, 360, 100, 100, 1.0);
   calcDimensions();
   sizeWindow();
+  slide = 0;
   slideShow();
 
 }
@@ -273,8 +274,10 @@ function reset() {
   bLayer.clear();
   pLayer.clear();
 
+  
+
   // basic random counter to determine how many pebbles will be present on the screen;
-  tempcount = int(random(0, 3));
+  tempcount = int(random(0.7, 3));
 
   // now a loop based on that random number, to place the pebbles on screen
   for (let k = 0; k < tempcount; k++) {
