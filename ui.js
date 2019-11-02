@@ -36,28 +36,28 @@ function writeTextUI() {
 
 
   button1 = createImg('assets/icon1-0.png');
-  button1.style('width', '15vMax');
+  button1.style('width', '13vMax');
   button1.mousePressed(rake1);
-  button1.position(0, windowHeight - vMax * 15);
+  button1.position(0, windowHeight - vMax * 13);
 
   button2 = createImg('assets/icon2-0.png');
-  button2.style('width', '15vMax');
+  button2.style('width', '13vMax');
   button2.mousePressed(rake2);
-  button2.position(vMax*13, windowHeight - vMax * 15);
+  button2.position(vMax*11, windowHeight - vMax * 13);
 
   button3 = createImg('assets/icon3-0.png');
-  button3.style('width', '15vMax');
+  button3.style('width', '13vMax');
   button3.mousePressed(rake3);
-  button3.position(vMax*26, windowHeight - vMax * 15);
+  button3.position(vMax*22, windowHeight - vMax * 13);
 
   button4 = createImg('assets/icon4-0.png');
-  button4.style('width', '15vMax');
+  button4.style('width', '13vMax');
   button4.mousePressed(rake4);
-  button4.position(vMax*39, windowHeight - vMax * 15);
+  button4.position(vMax*33, windowHeight - vMax * 13);
 
   selector = createImg('assets/selector.png');
-  selector.style('width', '15vMax');
-  selector.position(vMax*13, windowHeight - vMax * 15);
+  selector.style('width', '13vMax');
+  selector.position(vMax*11, windowHeight - vMax * 13);
 
   // button2 = createButton('Full screen');
   resetButton = createButton('Nouveau');
@@ -129,7 +129,7 @@ function removeAll(){
 function rake1() {
   //removeAll();
   bool_button1 = 3;
-  selector.position(0, windowHeight - vMax * 15);
+  selector.position(0, windowHeight - vMax * 13);
     click.play();
 
 }
@@ -138,7 +138,7 @@ function rake1() {
 function rake2() {
   //removeAll();
   bool_button1 = 0;
-  selector.position(vMax*13, windowHeight - vMax * 15);
+  selector.position(vMax*11, windowHeight - vMax * 13);
     click.play();
 
 }
@@ -146,14 +146,14 @@ function rake2() {
 
 function rake3() {
   bool_button1 = 1;
-  selector.position(vMax*26, windowHeight - vMax * 15);
+  selector.position(vMax*22, windowHeight - vMax * 13);
       click.play();
 }
 
 
 function rake4() {
   bool_button1 = 2;
-  selector.position(vMax*39, windowHeight - vMax * 15);
+  selector.position(vMax*33, windowHeight - vMax * 13);
       click.play();
 }
 

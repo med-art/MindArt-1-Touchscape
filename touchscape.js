@@ -227,7 +227,7 @@ function touchMoved() {
   if (bool_button1 === 3) {
 
 
-bLayer.fill(127, 100);
+bLayer.fill(127, 70);
 bLayer.noStroke();
 bLayer.ellipse(mouseX,mouseY, vMax*8, vMax*8);
   }
