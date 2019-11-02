@@ -75,9 +75,9 @@ function sizeWindow() {
   newbLayer.push();
   newbLayer.translate(width/2, height/2);
   newbLayer.rotate(PI/2);
-    newbLayer.translate(-width/2, -height/2);
-  newbLayer.image(bLayer, 0, 0, windowWidth, windowHeight);
-    newbLayer.pop()
+  newbLayer.translate(-width/2, -height/2);
+  newbLayer.image(bLayer, 0, 0, windowHeight, windowWidth);
+  newbLayer.pop()
   bLayer.resizeCanvas(windowWidth, windowHeight);
   bLayer = newbLayer;
 
