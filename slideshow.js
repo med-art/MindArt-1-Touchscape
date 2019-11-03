@@ -2,7 +2,7 @@ let introText = ["Touchez", "Regardez", "Ecoutez", "Touchez"];
 let appCol = "#469ede"; // 70, 158, 222
 let slide = 4; // current app is starting at 4 to prevent any behaviour before first button press.
 // this is illogical, need to rephrase.
-let delayTime = 8000; // this is the for each slide change
+let delayTime = 800; // this is the for each slide change
 let introState = 0;
 let startButton;
 

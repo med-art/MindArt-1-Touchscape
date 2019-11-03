@@ -9,6 +9,8 @@ let tempcount = 0;
 let randomScalar = [];
 let tempID = [];
 let colourBool = 0;
+let storedOrientation;
+let currentOrientation;
 
 // declare all brush variables
 let rakeX = 0,
@@ -60,10 +62,18 @@ function setup() {
   sizeWindow();
   slide = 0;
   slideShow();
+
+  if (width < height){
+    storedOrientation = "portrait";
+  }
+  else {
+    storedOrientation = "landscape";
+  }
+
+
 }
 
-function sizeWindow() {
-
+function rotateWindow(){
   var newbLayer = createGraphics(windowWidth, windowHeight);
   newbLayer.push();
   newbLayer.translate(width / 2, height / 2);
@@ -75,15 +85,53 @@ function sizeWindow() {
   bLayer = newbLayer;
 
   var newpLayer = createGraphics(windowWidth, windowHeight);
-  newpLayer.image(pLayer, 0, 0, windowWidth, windowHeight);
+  newpLayer.push();
   newpLayer.translate(width / 2, height / 2);
   newpLayer.rotate(PI / 2);
-  newpLayer.translate(-width / 2, -height / 2);
+  newpLayer.translate(-height / 2, -width / 2);
+  newpLayer.image(pLayer, 0, 0, windowHeight, windowWidth);
+  newpLayer.pop()
   pLayer.resizeCanvas(windowWidth, windowHeight);
   pLayer = newpLayer;
+}
+
+function stretchWindow(){
+  var newbLayer = createGraphics(windowWidth, windowHeight);
+  newbLayer.image(bLayer, 0, 0, windowWidth, windowHeight);
+  bLayer.resizeCanvas(windowWidth, windowHeight);
+  bLayer = newbLayer;
+
+  var newpLayer = createGraphics(windowWidth, windowHeight);
+  newpLayer.image(pLayer, 0, 0, windowWidth, windowHeight);
+  pLayer.resizeCanvas(windowWidth, windowHeight);
+  pLayer = newpLayer;
+}
+
+function sizeWindow() {
 
   resizeCanvas(windowWidth, windowHeight);
   image(img_background, 0, 0, width, height);
+
+  if (width < height){
+    currentOrientation = "portrait";
+  }
+  else {
+    currentOrientation = "landscape";
+  }
+
+if (currentOrientation === storedOrientation){
+ stretchWindow();
+}
+else {
+   rotateWindow();
+}
+
+storedOrientation = currentOrientation;
+
+
+
+
+
 
   segLength = width / 15;
   findLongEdge();
