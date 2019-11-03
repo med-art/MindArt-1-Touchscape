@@ -11,6 +11,7 @@ let tempID = [];
 let colourBool = 0;
 let storedOrientation;
 let currentOrientation;
+let rotateDirection = 1;
 
 // declare all brush variables
 let rakeX = 0,
@@ -77,7 +78,7 @@ function rotateWindow(){
   var newbLayer = createGraphics(windowWidth, windowHeight);
   newbLayer.push();
   newbLayer.translate(width / 2, height / 2);
-  newbLayer.rotate(PI / 2);
+  newbLayer.rotate((PI/2)*rotateDirection);
   newbLayer.translate(-height / 2, -width / 2);
   newbLayer.image(bLayer, 0, 0, windowHeight, windowWidth);
   newbLayer.pop()
@@ -87,12 +88,14 @@ function rotateWindow(){
   var newpLayer = createGraphics(windowWidth, windowHeight);
   newpLayer.push();
   newpLayer.translate(width / 2, height / 2);
-  newpLayer.rotate(PI / 2);
+  newpLayer.rotate((PI / 2)*rotateDirection);
   newpLayer.translate(-height / 2, -width / 2);
   newpLayer.image(pLayer, 0, 0, windowHeight, windowWidth);
   newpLayer.pop()
   pLayer.resizeCanvas(windowWidth, windowHeight);
   pLayer = newpLayer;
+
+  rotateDirection = rotateDirection*-1;
 }
 
 function stretchWindow(){
