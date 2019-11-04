@@ -108,6 +108,8 @@ function stretchWindow(){
   newpLayer.image(pLayer, 0, 0, windowWidth, windowHeight);
   pLayer.resizeCanvas(windowWidth, windowHeight);
   pLayer = newpLayer;
+
+  textLayer.resizeCanvas(windowWidth, windowHeight);
 }
 
 function sizeWindow() {
@@ -283,6 +285,7 @@ function windowResized() {
 
   if (introState != 3){
     sizeWindow();
+
   }
 
   if (introState === 3) {
