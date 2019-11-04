@@ -64,21 +64,20 @@ function setup() {
   slide = 0;
   slideShow();
 
-  if (width < height){
+  if (width < height) {
     storedOrientation = "portrait";
-  }
-  else {
+  } else {
     storedOrientation = "landscape";
   }
 
 
 }
 
-function rotateWindow(){
+function rotateWindow() {
   var newbLayer = createGraphics(windowWidth, windowHeight);
   newbLayer.push();
   newbLayer.translate(width / 2, height / 2);
-  newbLayer.rotate((PI/2)*rotateDirection);
+  newbLayer.rotate((PI / 2) * rotateDirection);
   newbLayer.translate(-height / 2, -width / 2);
   newbLayer.image(bLayer, 0, 0, windowHeight, windowWidth);
   newbLayer.pop()
@@ -88,17 +87,17 @@ function rotateWindow(){
   var newpLayer = createGraphics(windowWidth, windowHeight);
   newpLayer.push();
   newpLayer.translate(width / 2, height / 2);
-  newpLayer.rotate((PI / 2)*rotateDirection);
+  newpLayer.rotate((PI / 2) * rotateDirection);
   newpLayer.translate(-height / 2, -width / 2);
   newpLayer.image(pLayer, 0, 0, windowHeight, windowWidth);
   newpLayer.pop()
   pLayer.resizeCanvas(windowWidth, windowHeight);
   pLayer = newpLayer;
 
-  rotateDirection = rotateDirection*-1;
+  rotateDirection = rotateDirection * -1;
 }
 
-function stretchWindow(){
+function stretchWindow() {
   var newbLayer = createGraphics(windowWidth, windowHeight);
   newbLayer.image(bLayer, 0, 0, windowWidth, windowHeight);
   bLayer.resizeCanvas(windowWidth, windowHeight);
@@ -108,8 +107,6 @@ function stretchWindow(){
   newpLayer.image(pLayer, 0, 0, windowWidth, windowHeight);
   pLayer.resizeCanvas(windowWidth, windowHeight);
   pLayer = newpLayer;
-
-  textLayer.resizeCanvas(windowWidth, windowHeight);
 }
 
 function sizeWindow() {
@@ -117,26 +114,19 @@ function sizeWindow() {
   resizeCanvas(windowWidth, windowHeight);
   image(img_background, 0, 0, width, height);
 
-  if (width < height){
+  if (width < height) {
     currentOrientation = "portrait";
-  }
-  else {
+  } else {
     currentOrientation = "landscape";
   }
 
-if (currentOrientation === storedOrientation){
- stretchWindow();
-}
-else {
-   rotateWindow();
-}
+  if (currentOrientation === storedOrientation) {
+    stretchWindow();
+  } else {
+    rotateWindow();
+  }
 
-storedOrientation = currentOrientation;
-
-
-
-
-
+  storedOrientation = currentOrientation;
 
   segLength = width / 15;
   findLongEdge();
@@ -144,6 +134,7 @@ storedOrientation = currentOrientation;
   img_brush.resize(longEdge / 35, longEdge / 20);
   img_rake.resize(longEdge / 40, longEdge / 10);
   img_rake2.resize(longEdge / 30, longEdge / 9);
+  textLayer.resizeCanvas(windowWidth, windowHeight);
 
   //writeTextUI();
   bLayer.tint(255, 190);
@@ -283,7 +274,7 @@ function reset() {
 
 function windowResized() {
 
-  if (introState != 3){
+  if (introState != 3) {
     sizeWindow();
 
   }
