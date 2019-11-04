@@ -32,8 +32,8 @@ function slideShow() {
   if (slide === introText.length) {
     textLayer.clear();
     introState = 3;
+    sizeWindow();
     writeTextUI();
-    //restart();
     counter = 0;
   } else if (slide < introText.length && slide > 0) {
     textLayer.clear();
