@@ -11,7 +11,7 @@ let tempID = [];
 let colourBool = 0;
 let storedOrientation;
 let currentOrientation;
-let rotateDirection = 1;
+let rotateDirection = -1;
 
 // declare all brush variables
 let rakeX = 0,
