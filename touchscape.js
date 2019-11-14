@@ -273,12 +273,9 @@ function reset() {
 }
 
 function windowResized() {
-
   if (introState != 3) {
     sizeWindow();
-
   }
-
   if (introState === 3) {
     removeElements();
     sizeWindow();
