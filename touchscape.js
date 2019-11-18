@@ -223,9 +223,9 @@ function touchMoved() {
       segment(rake2X, rake2Y, angle1, img_rake2)
     }
     if (bool_button1 === 3) {
-      bLayer.fill(127, 70);
+      bLayer.fill(127, 90);
       bLayer.noStroke();
-      bLayer.ellipse(mouseX, mouseY, vMax * 8, vMax * 8);
+      bLayer.ellipse(mouseX, mouseY, vMax * 9, vMax * 9);
     }
   } else {
     if (slide === 0) {
